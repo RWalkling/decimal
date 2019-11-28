@@ -1,0 +1,13 @@
+{
+  "extends": "../tsconfig-base",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": ".",
+    "resolveJsonModule": true
+  },
+  "references": [{
+    "path": "./tsconfig-src.json"
+  }],
+  "files": [
+  ]
+}

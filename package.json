@@ -1,0 +1,63 @@
+{
+  "name": "@gecks/decimal",
+  "version": "0.0.0",
+  "description": "Arbitrary-precision basic numerical calculation",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "typecheck:source": "tsc --build src/tsconfig-check.json",
+    "typecheck:tests": "npm run clean:testlib && tsc --build test",
+    "typecheck": "npm run typecheck:source && npm run typecheck:tests",
+    "lint:source": "eslint src/**",
+    "lint:tests": "eslint test/**",
+    "lint": "npm run lint:source && npm run lint:tests",
+    "lint:source-fix": "eslint --fix src/**",
+    "lint:tests-fix": "eslint --fix test/**",
+    "lint:fix": "npm run lint:source-fix && npm run lint:tests-fix",
+    "compile": "babel src --out-dir lib --extensions \".ts\"",
+    "test": "jest",
+    "build:declarations": "tsc --build src",
+    "clean:lib": "rimraf lib",
+    "clean:testlib": "rimraf test/lib",
+    "ready": "npm run clean:lib && npm run lint && npm run typecheck && npm run build:declarations && npm run compile",
+    "release": "np"
+  },
+  "repository": {
+    "url": "https://github.com/RWalkling/decimal"
+  },
+  "author": "Raphael Walkling",
+  "license": "ISC",
+  "dependencies": {
+    "@gecks/utility-types": "^0.4.0",
+    "@gecks/curry": "^0.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/plugin-syntax-bigint": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "@types/jest": "^24.0.23",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^24.9.0",
+    "np": "^5.1.3",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.0",
+    "npm": "^6.13.1",
+    "typescript": "^3.7.2",
+    "jest-each": "^24.9.0"
+  }
+}
